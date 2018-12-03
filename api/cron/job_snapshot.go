@@ -51,12 +51,17 @@ func (runner *SnapshotJobRunner) Run() {
 		return
 	}
 
+	log.Printf("[DEBUG] - Snapshot job started [endpoints: %d]", len(endpoints))
+
 	for _, endpoint := range endpoints {
 		if endpoint.Type == portainer.AzureEnvironment {
+			log.Println("[DEBUG] - Skipping Azure endpoint")
 			continue
 		}
 
+		log.Printf("[DEBUG] - Snapshot start [endpoint: %s]", endpoint.Name)
 		snapshot, snapshotError := runner.context.snapshotter.CreateSnapshot(&endpoint)
+		log.Printf("[DEBUG] - Snapshot end [endpoint: %s]", endpoint.Name)
 
 		latestEndpointReference, err := runner.context.endpointService.Endpoint(endpoint.ID)
 		if latestEndpointReference == nil {
@@ -72,6 +77,8 @@ func (runner *SnapshotJobRunner) Run() {
 
 		if snapshot != nil {
 			latestEndpointReference.Snapshots = []portainer.Snapshot{*snapshot}
+		} else {
+			log.Printf("[DEBUG] - WARNING - Empty snapshot", endpoint.Name)
 		}
 
 		err = runner.context.endpointService.UpdateEndpoint(latestEndpointReference.ID, latestEndpointReference)
