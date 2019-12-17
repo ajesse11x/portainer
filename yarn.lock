@@ -4524,10 +4524,10 @@ xtend@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-3.0.0.tgz#5cce7407baf642cba7becda568111c493f59665a"
 
-xterm@^3.8.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/xterm/-/xterm-3.8.0.tgz#55d1de518bdc9c9793823f5e4e97d6898972938d"
-  integrity sha512-rS3HLryuMWbLsv98+jVVSUXCxmoyXPwqwJNC0ad0VSMdXgl65LefPztQVwfurkaF7kM7ZSgM8eJjnJ9kkdoR1w==
+xterm@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/xterm/-/xterm-4.3.0.tgz#9a302efefe75172d4f7ea3afc20f9bd983f05027"
+  integrity sha512-6dnrC4nxgnRKQzIWwC5HA0mnT9/rpDPZflUIr24gdcdSMTKM1QQcor4qQ/xz4Zerz6AIL/CuuBPypFfzsB63dQ==
 
 yargs@~3.10.0:
   version "3.10.0"
